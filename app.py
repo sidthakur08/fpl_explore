@@ -58,7 +58,7 @@ app.layout = html.Div(style={
         }
     ),
     html.Div(
-        children = 'This interactive web app can be a toolkit for you to select and optimise you players based on their previous year\'s performances',
+        children = 'This interactive web app can be a toolkit for you to select and optimise your player selection based on their previous year\'s performances',
         style = {
             'color':'#28D0B4',
         }
