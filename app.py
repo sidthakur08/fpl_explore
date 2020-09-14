@@ -13,7 +13,7 @@ custom = dict(
     layout=go.Layout(title_font=dict(family="Rockwell", size=24, color="#28D0B4"))
 )
 
-keeper_data = pd.read_csv('keeper_dash.csv')
+keeper_data = pd.read_csv('notebooks/data/keeper_dash.csv')
 
 app.layout = html.Div(style={
     'marginLeft': 0, 'marginRight': 0, 'marginTop': 0, 'marginBottom': 0,

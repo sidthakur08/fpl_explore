@@ -1,0 +1,32 @@
+player,squad,position,games_gk,minutes_gk,goals_against_per90_gk,save_pct,clean_sheets_pct,pens_att_gk,pens_saved,psxg_net_gk,cost,points,player_name,ppm
+Adrián,Liverpool,GK,11.0,875.0,1.03,0.643,22.2,0.0,0.0,-1.3,4.5,27,Adrián,2.4545454545454546
+Alisson,Liverpool,GK,29.0,2543.0,0.81,0.722,44.8,1.0,0.0,0.8,6.0,122,Alisson,4.206896551724138
+Kepa Arrizabalaga,Chelsea,GK,33.0,2970.0,1.42,0.545,24.2,2.0,0.0,-9.6,5.0,90,Arrizabalaga,2.727272727272727
+Claudio Bravo,Manchester City,GK,4.0,347.0,1.82,0.5329999999999999,33.3,0.0,0.0,-3.0,4.5,11,Bravo,2.75
+Willy Caballero,Chelsea,GK,5.0,450.0,1.4,0.563,20.0,0.0,0.0,-0.4,5.0,13,Caballero,2.6
+Martin Dúbravka,Newcastle Utd,GK,38.0,3420.0,1.53,0.705,28.9,2.0,0.0,10.0,5.0,143,Dúbravka,3.763157894736842
+Ederson,Manchester City,GK,35.0,3071.0,0.82,0.728,45.7,3.0,0.0,2.4,6.0,133,Ederson,3.8
+Łukasz Fabiański,West Ham,GK,25.0,2117.0,1.45,0.684,20.0,4.0,1.0,-2.0,5.0,83,Fabiański,3.32
+Paulo Gazzaniga,Tottenham,GK,18.0,1613.0,1.45,0.7090000000000001,11.8,4.0,1.0,0.2,4.5,58,Gazzaniga,3.2222222222222223
+David de Gea,Manchester Utd,GK,38.0,3420.0,0.95,0.736,34.2,3.0,0.0,2.5,5.5,143,de Gea,3.763157894736842
+Vicente Guaita,Crystal Palace,GK,35.0,3150.0,1.2,0.7140000000000001,28.6,1.0,0.0,7.3,5.0,137,Guaita,3.914285714285714
+Angus Gunn,Southampton,GK,10.0,900.0,2.5,0.5660000000000001,20.0,2.0,0.0,-7.6,4.5,29,Gunn,2.9
+Tom Heaton,Aston Villa,GK,20.0,1794.0,1.76,0.677,20.0,3.0,0.0,-1.7,4.5,59,Heaton,2.95
+Dean Henderson,Sheffield Utd,GK,36.0,3240.0,0.92,0.752,36.1,3.0,1.0,4.8,5.5,160,Henderson,4.444444444444445
+Wayne Hennessey,Crystal Palace,GK,3.0,270.0,2.67,0.636,0.0,0.0,0.0,0.8,4.5,7,Hennessey,2.3333333333333335
+Bernd Leno,Arsenal,GK,30.0,2649.0,1.33,0.7759999999999999,23.3,7.0,1.0,6.4,5.0,114,Leno,3.8
+Hugo Lloris,Tottenham,GK,21.0,1807.0,1.05,0.7959999999999999,28.6,3.0,1.0,7.2,5.5,98,Lloris,4.666666666666667
+David Martin,West Ham,GK,5.0,436.0,1.24,0.7,50.0,0.0,0.0,1.8,4.0,20,Martin,4.0
+Emiliano Martínez,Arsenal,GK,9.0,771.0,1.05,0.81,37.5,1.0,0.0,4.1,4.5,33,Martínez,3.6666666666666665
+Alex McCarthy,Southampton,GK,28.0,2520.0,1.25,0.691,25.0,2.0,1.0,6.2,4.5,104,McCarthy,3.7142857142857144
+Simon Moore,Sheffield Utd,GK,2.0,180.0,3.0,0.5,0.0,0.0,0.0,-1.7,4.5,3,Moore,1.5
+Ørjan Nyland,Aston Villa,GK,7.0,539.0,2.0,0.5379999999999999,20.0,0.0,0.0,-3.6,4.0,15,Nyland,2.142857142857143
+Rui Patrício,Wolves,GK,38.0,3420.0,1.05,0.675,34.2,3.0,2.0,0.9,5.0,83,Patrício,2.1842105263157894
+Jordan Pickford,Everton,GK,38.0,3420.0,1.47,0.634,23.7,4.0,0.0,-5.0,5.0,117,Pickford,3.0789473684210527
+Nick Pope,Burnley,GK,38.0,3420.0,1.32,0.711,39.5,5.0,1.0,-2.1,5.5,170,Pope,4.473684210526316
+Aaron Ramsdale,Bournemouth,GK,37.0,3330.0,1.68,0.6779999999999999,13.5,6.0,1.0,0.1,5.0,126,Ramsdale,3.4054054054054053
+Darren Randolph,West Ham,GK,2.0,180.0,2.5,0.556,0.0,1.0,0.0,-0.6,4.5,3,Randolph,1.5
+Roberto,West Ham,GK,8.0,687.0,2.23,0.6859999999999999,0.0,1.0,0.0,0.2,4.5,18,Roberto,2.25
+Mathew Ryan,Brighton,GK,38.0,3420.0,1.42,0.6829999999999999,23.7,2.0,0.0,2.7,4.5,135,Ryan,3.5526315789473686
+Kasper Schmeichel,Leicester City,GK,38.0,3420.0,1.08,0.738,34.2,10.0,2.0,3.7,5.5,156,Schmeichel,4.105263157894737
+Jed Steer,Aston Villa,GK,1.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,1,Steer,1.0
