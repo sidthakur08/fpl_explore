@@ -96,8 +96,26 @@ app.layout = html.Div(style={
     ),
 
     html.Div(className = 'info-panel',children=[
-        html.H4(children = 'What is FPL?'),
-        html.P(children = 'To keep it short, It’s an online game, well more than just a game, that puts you in the shoes of a fantasy manager in Premier League, where you pick real-life players that score points for you depending on their on-field performances.')
+        html.H4(children = 'What is FPL?',style={'marginBottom':-10}),
+        html.P(children = 'To keep it short, It’s an online game, well more than just a game, that puts you in the shoes of a fantasy manager in Premier League, where you pick real-life players that score points for you depending on their on-field performances.'),
+        html.H5(children = 'Some of the stats used',style ={'marginBottom':-15}),
+        dcc.Markdown('''
+        I'm focusing on keepers mainly so here are some of the stats and their explanation:-
+        * Save Percentage --> (Shots on Target Against - Goals Against)/Shots on Target Against
+        * Clean Sheet Percentage --> Percentage of matches that result in the keeper not conceding any goals
+        * Post Shot Expected Goals (PSxG) - Goals Allowed --> Positive numbers suggest better luck or an above average ability to stop shots. PSxG is expected goals based on how likely the goalkeeper is to save the shot. (xG totals include penalty kicks, but do not include penalty shootouts).
+        * PPM or Points per minute --> Points earned last season by the player/Minutes player last season
+        '''
+        ),
+        html.H5(children = 'More stuff coming up',style={'marginBottom':-10}),
+        html.P(children = 'Analytics Panel for Forwards, Midfielders and Defenders.'),
+        html.H4(children = 'Few links that can come in handy',style={'marginBottom':0}),
+        html.A(' - More Info on PSxG',href='https://statsbomb.com/2018/11/a-new-way-to-measure-keepers-shot-stopping-post-shot-expected-goals/',target = '_blank'),
+        html.Br(),
+        html.A(' - Statisfy -  A collections of Basic Football Analytics',href='https://github.com/sidthakur08/statisfy'),
+        html.Br(),
+        html.A(' - Contact me on Twitter :)',href = 'https://twitter.com/sidtweetsnow',target='_blank'),
+        html.Br(),
     ]),
 
     html.Div(className = 'link-name', children = [
