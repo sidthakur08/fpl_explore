@@ -91,7 +91,16 @@ app.layout = html.Div(style={
         style = {
             'marginTop':40,
         }
-    )
+    ),
+
+    html.Div(className = 'info-panel',children=[
+        html.H4(children = 'What is FPL?'),
+        html.P(children = 'Helo?')
+    ]),
+
+    html.Div(className = 'link-name', children = [
+        html.A('Link to the github repository',href = "https://github.com/sidthakur08/fpl_explore",target='_blank')
+    ])
 ])
 
 @app.callback(
@@ -103,8 +112,6 @@ app.layout = html.Div(style={
     ]
 )
 def update_graph(y,x,plot_type):
-    names = [n for n in keeper_data['player_name']]
-    print(names)
     if plot_type=='bar':
         fig = px.bar(keeper_data,x=x,y=y,hover_name='player',hover_data=['cost','points','minutes_gk'])
     elif plot_type=='scatter':
