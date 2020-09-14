@@ -1,4 +1,4 @@
-player,squad,position,games_gk,minutes_gk,goals_against_per90_gk,save_pct,clean_sheets_pct,pens_allowed,psxg_net_gk,cost,points,ppm,short_name
+player,squad,position,games_gk,minutes_gk,goals_against_per90_gk,save_pct,clean_sheets_pct,pens_allowed,psxg_net_gk,cost,points,ppm,player_name
 Adrián,Liverpool,GK,11.0,875.0,1.03,0.643,22.2,0.0,-1.3,4.5,27,2.4545454545454546,Adrián
 Alisson,Liverpool,GK,29.0,2543.0,0.81,0.722,44.8,1.0,0.8,6.0,122,4.206896551724138,Alisson
 Kepa Arrizabalaga,Chelsea,GK,33.0,2970.0,1.42,0.545,24.2,2.0,-9.6,5.0,90,2.727272727272727,Arrizabalaga

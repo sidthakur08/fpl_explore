@@ -1,11 +1,11 @@
 import dash
 import dash_html_components as html
 import dash_core_components as dcc
+from dash.dependencies import Input,Output
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 import plotly.io as pio
-
 
 app = dash.Dash()
 
@@ -14,38 +14,6 @@ custom = dict(
 )
 
 keeper_data = pd.read_csv('keeper_dash.csv')
-
-psxg_fig = px.bar(keeper_data,x='short_name',y='psxg_net_gk',text='psxg_net_gk')
-psxg_fig.update_layout({
-    'title':{
-        'text':'PSxG - Goal Allowed per 90s',
-        'font':{
-            'family':'Rockwell',
-            'size':24,
-            'color':'#28D0B4'
-        },
-        'x':0.5
-    },
-    'plot_bgcolor':'#333',
-    'paper_bgcolor':'#333',
-    'yaxis':{
-        'title':'PSxG +/-',
-        'showgrid':False,
-    },
-    'xaxis':{
-        'title':'Keepers',
-        'showgrid':False,
-        'categoryorder':'total descending'
-    },
-    'font':{
-        'family':'Rockwell',
-        'color':'#28D0B4'
-    },
-})
-psxg_fig.update_traces({
-    'texttemplate':'%{text:.2s}',
-    'textposition':'outside'
-})
 
 app.layout = html.Div(style={
     'marginLeft': 0, 'marginRight': 0, 'marginTop': 0, 'marginBottom': 0,
@@ -64,11 +32,111 @@ app.layout = html.Div(style={
         }
     ),
 
+    html.Div(
+        id = 'stats-menu',
+        className = 'dropdowns',
+        children = [
+            dcc.Dropdown(
+                id = 'yaxis',
+                className = 'ydropdown',
+                options = [
+                    {'label':'Games Played','value':'games_gk'},
+                    {'label':'Minutes Played','value':'minutes_gk'},
+                    {'label':'Save %','value':'save_pct'},
+                    {'label':'Clean Sheet %','value':'clean_sheets_pct'},
+                    {'label':'Penalties Allowed','value':'pens_allowed'},
+                    {'label':'PSxG - Goals Allowed','value':'psxg_net_gk'},
+                    {'label':'Cost','value':'cost'},
+                    {'label':'Points','value':'points'},
+                    {'label':'Points per minute','value':'ppm'},
+                    {'label':'Players','value':'player_name'},
+                ],
+                placeholder = 'Choose statistics for Y axis',
+                searchable = True,
+                value = 'points'
+            ),
+            dcc.Dropdown(
+                id = 'xaxis',
+                className = 'xdropdown',
+                options = [
+                    {'label':'Games Played','value':'games_gk'},
+                    {'label':'Minutes Played','value':'minutes_gk'},
+                    {'label':'Save %','value':'save_pct'},
+                    {'label':'Clean Sheet %','value':'clean_sheets_pct'},
+                    {'label':'Penalties Allowed','value':'pens_allowed'},
+                    {'label':'PSxG - Goals Allowed','value':'psxg_net_gk'},
+                    {'label':'Cost','value':'cost'},
+                    {'label':'Points','value':'points'},
+                    {'label':'Points per minute','value':'ppm'},
+                    {'label':'Players','value':'player_name'},
+                ],
+                placeholder = 'Choose statistics for X axis',
+                searchable = True,
+                value= 'player_name'
+            ),
+            dcc.RadioItems(
+                id='plot',
+                className = 'plot-select',
+                options=[{'label': 'Bar Plot', 'value': 'bar'},
+                         {'label': 'Scatter Plot', 'value': 'scatter'},
+                ],
+                value='scatter'
+            ),
+        ]
+    ),
+
     dcc.Graph(
-        id='psxg-net-graph',
-        figure=psxg_fig,
+        id='stats-graph',
+        className = 'graph',
+        style = {
+            'marginTop':40,
+        }
     )
 ])
+
+@app.callback(
+    Output('stats-graph','figure'),
+    [
+        Input('yaxis','value'),
+        Input('xaxis','value'),
+        Input('plot','value')
+    ]
+)
+def update_graph(y,x,plot_type):
+    names = [n for n in keeper_data['player_name']]
+    print(names)
+    if plot_type=='bar':
+        fig = px.bar(keeper_data,x=x,y=y,hover_name='player',hover_data=['cost','points','minutes_gk'])
+    elif plot_type=='scatter':
+        fig = px.scatter(keeper_data,x=x,y=y,hover_name='player',hover_data=['cost','points','minutes_gk'])
+
+    fig.update_layout({
+        'title':{
+            'text':f'{y.capitalize()} vs {x.capitalize()}',
+            'font':{
+                'family':'Rockwell',
+                'size':24,
+                'color':'#28D0B4'
+            },
+            'x':0.5
+        },
+        'plot_bgcolor':'#333',
+        'paper_bgcolor':'#333',
+        'yaxis':{
+            'title':f'{y.capitalize()}',
+            'showgrid':False,
+        },
+        'xaxis':{
+            'title':f'{x.capitalize()}',
+            'showgrid':False,
+            'categoryorder':'total descending'
+        },
+        'font':{
+            'family':'Rockwell',
+            'color':'#28D0B4'
+        },
+    })
+    return fig
 
 if __name__ == "__main__":
     app.run_server(debug=True)
