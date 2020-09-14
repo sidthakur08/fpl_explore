@@ -1,3 +1,4 @@
+import flask
 import dash
 import dash_html_components as html
 import dash_core_components as dcc
@@ -7,7 +8,8 @@ import plotly.graph_objects as go
 import plotly.express as px
 import plotly.io as pio
 
-app = dash.Dash()
+server = flask.Flask(__name__)
+app = dash.Dash(__name__, server=server)
 
 custom = dict(
     layout=go.Layout(title_font=dict(family="Rockwell", size=24, color="#28D0B4"))
