@@ -44,7 +44,8 @@ app.layout = html.Div(style={
                     {'label':'Minutes Played','value':'minutes_gk'},
                     {'label':'Save %','value':'save_pct'},
                     {'label':'Clean Sheet %','value':'clean_sheets_pct'},
-                    {'label':'Penalties Allowed','value':'pens_allowed'},
+                    {'label':'Penalties Faced','value':'pens_att_gk'},
+                    {'label':'Penalties Saved','value':'pens_saved'},
                     {'label':'PSxG - Goals Allowed','value':'psxg_net_gk'},
                     {'label':'Cost','value':'cost'},
                     {'label':'Points','value':'points'},
@@ -63,7 +64,8 @@ app.layout = html.Div(style={
                     {'label':'Minutes Played','value':'minutes_gk'},
                     {'label':'Save %','value':'save_pct'},
                     {'label':'Clean Sheet %','value':'clean_sheets_pct'},
-                    {'label':'Penalties Allowed','value':'pens_allowed'},
+                    {'label':'Penalties Faced','value':'pens_att_gk'},
+                    {'label':'Penalties Saved','value':'pens_saved'},
                     {'label':'PSxG - Goals Allowed','value':'psxg_net_gk'},
                     {'label':'Cost','value':'cost'},
                     {'label':'Points','value':'points'},
@@ -95,7 +97,7 @@ app.layout = html.Div(style={
 
     html.Div(className = 'info-panel',children=[
         html.H4(children = 'What is FPL?'),
-        html.P(children = 'Helo?')
+        html.P(children = 'To keep it short, It’s an online game, well more than just a game, that puts you in the shoes of a fantasy manager in Premier League, where you pick real-life players that score points for you depending on their on-field performances.')
     ]),
 
     html.Div(className = 'link-name', children = [
