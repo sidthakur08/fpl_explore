@@ -11,6 +11,10 @@ import plotly.io as pio
 server = flask.Flask(__name__)
 app = dash.Dash(__name__, server=server)
 
+@server.route('/hello')
+def hello():
+    return ('Hello fellow FPL manager!')
+
 custom = dict(
     layout=go.Layout(title_font=dict(family="Rockwell", size=24, color="#28D0B4"))
 )
