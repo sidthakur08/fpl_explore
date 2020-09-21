@@ -47,7 +47,8 @@ def init_dashboard(server):
                         {'label':'PSxG - Goals Allowed','value':'psxg_net_gk'},
                         {'label':'Cost','value':'cost'},
                         {'label':'Points','value':'points'},
-                        {'label':'Points per minute','value':'ppm'},
+                        {'label':'Points per game','value':'ppg'},
+                        {'label':'Points per cost','value':'ppc'},
                         {'label':'Players','value':'player_name'},
                     ],
                     placeholder = 'Choose statistics for Y axis',
@@ -67,7 +68,8 @@ def init_dashboard(server):
                         {'label':'PSxG - Goals Allowed','value':'psxg_net_gk'},
                         {'label':'Cost','value':'cost'},
                         {'label':'Points','value':'points'},
-                        {'label':'Points per minute','value':'ppm'},
+                        {'label':'Points per game','value':'ppg'},
+                        {'label':'Points per cost','value':'ppc'},
                         {'label':'Players','value':'player_name'},
                     ],
                     placeholder = 'Choose statistics for X axis',
@@ -94,15 +96,14 @@ def init_dashboard(server):
         ),
 
         html.Div(className = 'info-panel',children=[
-            html.H4(children = 'What is FPL?',style={'marginBottom':-10}),
-            html.P(children = 'To keep it short, It’s an online game, well more than just a game, that puts you in the shoes of a fantasy manager in Premier League, where you pick real-life players that score points for you depending on their on-field performances.'),
             html.H5(children = 'Some of the stats used',style ={'marginBottom':-15}),
             dcc.Markdown('''
             I'm focusing on keepers mainly so here are some of the stats and their explanation:-
-            * Save Percentage --> (Shots on Target Against - Goals Against)/Shots on Target Against
-            * Clean Sheet Percentage --> Percentage of matches that result in the keeper not conceding any goals
+            * Save Percentage --> (Shots on Target Against - Goals Against)/Shots on Target Against.
+            * Clean Sheet Percentage --> Percentage of matches that result in the keeper not conceding any goals.
             * Post Shot Expected Goals (PSxG) - Goals Allowed --> Positive numbers suggest better luck or an above average ability to stop shots. PSxG is expected goals based on how likely the goalkeeper is to save the shot. (xG totals include penalty kicks, but do not include penalty shootouts).
-            * PPM or Points per minute --> Points earned last season by the player/Minutes player last season
+            * PPM or Points per minute --> Points earned last season by the player/Minutes player last season.
+            * PPC or Points per cost --> Focuses on how much points a player can earn per million.
             '''
             ),
             html.H5(children = 'More stuff coming up',style={'marginBottom':-10}),

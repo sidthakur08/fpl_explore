@@ -2,3 +2,6 @@
 .ipynb_checkpoints
 venv
 .env
+*.pyc
+./fpl/__pycache/*
+
