@@ -7,7 +7,7 @@ def init_app():
     with app.app_context():
         from . import routes
 
-        from .dashboard.dash_app import init_dashboard
-        app = init_dashboard(app)
+        #from .dashboard.dash_app import init_keeper
+        #app = init_keeper(app)
 
         return app

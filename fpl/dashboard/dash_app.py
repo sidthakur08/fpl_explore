@@ -8,11 +8,11 @@ import plotly.graph_objects as go
 import plotly.express as px
 import plotly.io as pio
 
-def init_dashboard(server):
+def init_keeper(server):
     app = dash.Dash(
         __name__, 
         server=server,
-        url_base_pathname="/dash/"
+        url_base_pathname="/keeper/"
     )
 
     app.layout = html.Div(children = [
@@ -122,11 +122,11 @@ def init_dashboard(server):
         ])
     ])
 
-    init_callbacks(app)
+    init_keeper_callbacks(app)
 
     return app.server
 
-def init_callbacks(app):
+def init_keeper_callbacks(app):
     @app.callback(
         Output('stats-graph','figure'),
         [
@@ -171,4 +171,11 @@ def init_callbacks(app):
         })
         return fig
 
-    
+def init_defender(server):
+    app = dash.Dash(
+        __name__, 
+        server=server,
+        url_base_pathname="/defender/"
+    )
+
+    return app
