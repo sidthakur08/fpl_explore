@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 import plotly.io as pio
 
-APP_ID = 'keeper'
+APP_ID = 'defender'
 URL_BASE = '/dash/defender/'
 
 def init_defender(server):
@@ -112,9 +112,6 @@ def init_defender(server):
 
         html.Div(className = 'info-panel',children=[
             html.H5(children = 'Some of the stats used',style ={'marginBottom':-15}),
-            dcc.Markdown('''
-            '''
-            ),
             html.A(' - Statisfy -  A collections of Basic Football Analytics',href='https://github.com/sidthakur08/statisfy'),
             html.Br(),
             html.A(' - Contact me on Twitter :)',href = 'https://twitter.com/sidtweetsnow',target='_blank'),
