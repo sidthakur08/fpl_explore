@@ -3,6 +3,7 @@
     <button onclick="myHome()">Home</button>
     <button onclick="myKeeper()">Keeper</button>
     <button onclick="myDef()">Defender</button>
+    <button onclick="myAtt()">Attacker</button>
     <script>
     function myHome() {
         location.replace("/home")
@@ -13,12 +14,15 @@
     function myDef() {
         location.replace("/defender")
         }
+    function myAtt() {
+        location.replace("/attacker")
+        }
     </script>
-    <div class="embed-responsive">
+    <div class="embed-responsive" style="background-color: #333333;">
         <iframe
                 src={{ dash_url }}
                 seamless="seamless"
-                style="border:none; overflow: hidden; margin-top: 10px; margin-left: -5px; margin-bottom: -5px; margin-right: -5px; position: absolute; width:99.5%; height: 100%; background: transparent;"
+                style="border:none;background-color: #333333; overflow: hidden; margin-top: 10px; margin-left: -5px; margin-bottom: -5px; margin-right: -5px; position: absolute; width:99.5%; height: 100%; background: transparent;"
     ></iframe>
     </div>
 </body>

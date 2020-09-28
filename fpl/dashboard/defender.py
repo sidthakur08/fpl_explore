@@ -57,7 +57,7 @@ def init_defender(server):
                         {'label':'Blocks, Interceptions & Clearances','value':'block_int_clear'},
                         {'label':'Cost','value':'cost'},
                         {'label':'Points earned','value':'points'},
-                        {'label':'Points per minute','value':'ppm'},
+                        {'label':'Points per game','value':'ppg'},
                         {'label':'Points per cost','value':'ppc'},
                     ],
                     placeholder = 'Choose statistics for Y axis',
@@ -84,7 +84,7 @@ def init_defender(server):
                         {'label':'Blocks, Interceptions & Clearances','value':'block_int_clear'},
                         {'label':'Cost','value':'cost'},
                         {'label':'Points earned','value':'points'},
-                        {'label':'Points per minute','value':'ppm'},
+                        {'label':'Points per game','value':'ppg'},
                         {'label':'Points per cost','value':'ppc'},
                     ],
                     placeholder = 'Choose statistics for X axis',
@@ -111,7 +111,7 @@ def init_defender(server):
         ),
 
         html.Div(className = 'info-panel',children=[
-            html.H5(children = 'Some of the stats used',style ={'marginBottom':-15}),
+            html.H5(children = 'Some of the stats used',style ={'marginBottom':-2}),
             html.A(' - Statisfy -  A collections of Basic Football Analytics',href='https://github.com/sidthakur08/statisfy'),
             html.Br(),
             html.A(' - Contact me on Twitter :)',href = 'https://twitter.com/sidtweetsnow',target='_blank'),
@@ -120,7 +120,10 @@ def init_defender(server):
 
         html.Div(className = 'link-name', children = [
             html.A('Link to the github repository',href = "https://github.com/sidthakur08/fpl_explore",target='_blank')
-        ])
+        ]),
+        html.Br(),
+        html.Br(),
+        html.Br(),
     ])
 
     init_defender_callbacks(app)

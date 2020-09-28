@@ -12,4 +12,6 @@ def init_app(config_class=Config):
         app = init_keeper(app)
         from fpl.dashboard.defender import init_defender
         app = init_defender(app)
+        from fpl.dashboard.attacker import init_attacker
+        app = init_attacker(app)
         return app

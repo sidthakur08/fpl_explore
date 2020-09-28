@@ -1,4 +1,4 @@
-import flask
+from flask import render_template
 import dash
 import dash_html_components as html
 import dash_core_components as dcc
@@ -6,7 +6,6 @@ from dash.dependencies import Input,Output
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
-import plotly.io as pio
 
 APP_ID = 'keeper'
 URL_BASE = '/dash/keeper/'
@@ -122,7 +121,10 @@ def init_keeper(server):
 
         html.Div(className = 'link-name', children = [
             html.A('Link to the github repository',href = "https://github.com/sidthakur08/fpl_explore",target='_blank')
-        ])
+        ]),
+        html.Br(),
+        html.Br(),
+        html.Br(),
     ])
 
     init_keeper_callbacks(app)
