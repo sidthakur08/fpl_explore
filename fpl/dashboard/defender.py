@@ -8,16 +8,19 @@ import plotly.graph_objects as go
 import plotly.express as px
 import plotly.io as pio
 
-def init_keeper(server):
+APP_ID = 'keeper'
+URL_BASE = '/dash/defender/'
+
+def init_defender(server):
     app = dash.Dash(
-        __name__, 
         server=server,
-        url_base_pathname="/keeper/"
+        url_base_pathname=URL_BASE,
+        suppress_callback_exceptions=True,
     )
 
     app.layout = html.Div(children = [
         html.H1(
-            children = 'Fantasy Premier League Exploration Dashboard',
+            children = 'Fantasy Premier League Defender Dashboard',
             style = {
                 'textAlign':'center',
                 'color':'#28D0B4',
@@ -38,18 +41,24 @@ def init_keeper(server):
                     id = 'yaxis',
                     className = 'ydropdown',
                     options = [
-                        {'label':'Games Played','value':'games_gk'},
-                        {'label':'Minutes Played','value':'minutes_gk'},
-                        {'label':'Save %','value':'save_pct'},
-                        {'label':'Clean Sheet %','value':'clean_sheets_pct'},
-                        {'label':'Penalties Faced','value':'pens_att_gk'},
-                        {'label':'Penalties Saved','value':'pens_saved'},
-                        {'label':'PSxG - Goals Allowed','value':'psxg_net_gk'},
+                        {'label':'Players','value':'player'},
+                        {'label':'Games Played','value':'games'},
+                        {'label':'Minutes','value':'minutes'},
+                        {'label':'Yellow Cards','value':'cards_yellow'},
+                        {'label':'Red Cards','value':'cards_red'},
+                        {'label':'Goals per90','value':'goals_per90'},
+                        {'label':'Assists per90','value':'assists_per90'},
+                        {'label':'Goals & Assists per90','value':'goals_assists_per90'},
+                        {'label':'Expected Goals per90','value':'xg_per90'},
+                        {'label':'Expected Assists per90','value':'xa_per90'},
+                        {'label':'Expected Goals & Assists per90','value':'xg_xa_per90'},
+                        {'label':'Dribble Tackling %','value':'dribble_tackles_pct'},
+                        {'label':'Pressure Regain %','value':'pressure_regain_pct'},
+                        {'label':'Blocks, Interceptions & Clearances','value':'block_int_clear'},
                         {'label':'Cost','value':'cost'},
-                        {'label':'Points','value':'points'},
-                        {'label':'Points per game','value':'ppg'},
+                        {'label':'Points earned','value':'points'},
+                        {'label':'Points per minute','value':'ppm'},
                         {'label':'Points per cost','value':'ppc'},
-                        {'label':'Players','value':'player_name'},
                     ],
                     placeholder = 'Choose statistics for Y axis',
                     searchable = True,
@@ -59,22 +68,28 @@ def init_keeper(server):
                     id = 'xaxis',
                     className = 'xdropdown',
                     options = [
-                        {'label':'Games Played','value':'games_gk'},
-                        {'label':'Minutes Played','value':'minutes_gk'},
-                        {'label':'Save %','value':'save_pct'},
-                        {'label':'Clean Sheet %','value':'clean_sheets_pct'},
-                        {'label':'Penalties Faced','value':'pens_att_gk'},
-                        {'label':'Penalties Saved','value':'pens_saved'},
-                        {'label':'PSxG - Goals Allowed','value':'psxg_net_gk'},
+                        {'label':'Players','value':'player'},
+                        {'label':'Games Played','value':'games'},
+                        {'label':'Minutes','value':'minutes'},
+                        {'label':'Yellow Cards','value':'cards_yellow'},
+                        {'label':'Red Cards','value':'cards_red'},
+                        {'label':'Goals per90','value':'goals_per90'},
+                        {'label':'Assists per90','value':'assists_per90'},
+                        {'label':'Goals & Assists per90','value':'goals_assists_per90'},
+                        {'label':'Expected Goals per90','value':'xg_per90'},
+                        {'label':'Expected Assists per90','value':'xa_per90'},
+                        {'label':'Expected Goals & Assists per90','value':'xg_xa_per90'},
+                        {'label':'Dribble Tackling %','value':'dribble_tackles_pct'},
+                        {'label':'Pressure Regain %','value':'pressure_regain_pct'},
+                        {'label':'Blocks, Interceptions & Clearances','value':'block_int_clear'},
                         {'label':'Cost','value':'cost'},
-                        {'label':'Points','value':'points'},
-                        {'label':'Points per game','value':'ppg'},
+                        {'label':'Points earned','value':'points'},
+                        {'label':'Points per minute','value':'ppm'},
                         {'label':'Points per cost','value':'ppc'},
-                        {'label':'Players','value':'player_name'},
                     ],
                     placeholder = 'Choose statistics for X axis',
                     searchable = True,
-                    value= 'player_name'
+                    value= 'player'
                 ),
                 dcc.RadioItems(
                     id='plot',
@@ -98,19 +113,8 @@ def init_keeper(server):
         html.Div(className = 'info-panel',children=[
             html.H5(children = 'Some of the stats used',style ={'marginBottom':-15}),
             dcc.Markdown('''
-            I'm focusing on keepers mainly so here are some of the stats and their explanation:-
-            * Save Percentage --> (Shots on Target Against - Goals Against)/Shots on Target Against.
-            * Clean Sheet Percentage --> Percentage of matches that result in the keeper not conceding any goals.
-            * Post Shot Expected Goals (PSxG) - Goals Allowed --> Positive numbers suggest better luck or an above average ability to stop shots. PSxG is expected goals based on how likely the goalkeeper is to save the shot. (xG totals include penalty kicks, but do not include penalty shootouts).
-            * PPM or Points per minute --> Points earned last season by the player/Minutes player last season.
-            * PPC or Points per cost --> Focuses on how much points a player can earn per million.
             '''
             ),
-            html.H5(children = 'More stuff coming up',style={'marginBottom':-10}),
-            html.P(children = 'Analytics Panel for Forwards, Midfielders and Defenders.'),
-            html.H4(children = 'Few links that can come in handy',style={'marginBottom':0}),
-            html.A(' - More Info on PSxG',href='https://statsbomb.com/2018/11/a-new-way-to-measure-keepers-shot-stopping-post-shot-expected-goals/',target = '_blank'),
-            html.Br(),
             html.A(' - Statisfy -  A collections of Basic Football Analytics',href='https://github.com/sidthakur08/statisfy'),
             html.Br(),
             html.A(' - Contact me on Twitter :)',href = 'https://twitter.com/sidtweetsnow',target='_blank'),
@@ -122,11 +126,11 @@ def init_keeper(server):
         ])
     ])
 
-    init_keeper_callbacks(app)
+    init_defender_callbacks(app)
 
     return app.server
 
-def init_keeper_callbacks(app):
+def init_defender_callbacks(app):
     @app.callback(
         Output('stats-graph','figure'),
         [
@@ -136,12 +140,12 @@ def init_keeper_callbacks(app):
         ]
     )
     def update_graph(y,x,plot_type):
-        keeper_data = pd.read_csv('./nbs/data/keeper_dash.csv')
+        keeper_data = pd.read_csv('./nbs/data/defender_dash.csv')
         
         if plot_type=='bar':
-            fig = px.bar(keeper_data,x=x,y=y,hover_name='player',hover_data=['cost','points','minutes_gk'])
+            fig = px.bar(keeper_data,x=x,y=y,hover_name='player',hover_data=['cost','points','minutes'])
         elif plot_type=='scatter':
-            fig = px.scatter(keeper_data,x=x,y=y,hover_name='player',hover_data=['cost','points','minutes_gk'])
+            fig = px.scatter(keeper_data,x=x,y=y,hover_name='player',hover_data=['cost','points','minutes'])
 
         fig.update_layout({
             'title':{
@@ -171,11 +175,10 @@ def init_keeper_callbacks(app):
         })
         return fig
 
-def init_defender(server):
-    app = dash.Dash(
-        __name__, 
-        server=server,
-        url_base_pathname="/defender/"
-    )
 
-    return app
+
+'''html.H5(children = 'More stuff coming up',style={'marginBottom':-10}),
+        html.P(children = 'Analytics Panel for Forwards, Midfielders and Defenders.'),
+        html.H4(children = 'Few links that can come in handy',style={'marginBottom':0}),
+        html.A(' - More Info on PSxG',href='https://statsbomb.com/2018/11/a-new-way-to-measure-keepers-shot-stopping-post-shot-expected-goals/',target = '_blank'),
+        html.Br(),'''
