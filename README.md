@@ -17,7 +17,7 @@ Run the shell script to install required packages and start the server.
 ```
 
 ### Take a look at the panel (it ain't much but it's honest work :)))
-![](https://github.com/sidthakur08/fpl_explore/blob/master/fpl_screen_opt.gif)
+![](https://github.com/sidthakur08/fpl_explore/blob/master/fpl_screen.gif)
 
 - If you face any permission errors while running the shell script. Write the given code.
   ```
