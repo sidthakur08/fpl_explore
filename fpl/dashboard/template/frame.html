@@ -1,8 +1,23 @@
 <body style="background-color: #333333;">
+    <button onclick="myHome()">Home</button>
+    <button onclick="myKeeper()">Keeper</button>
+    <button onclick="myDef()">Defender</button>
+    <script>
+    function myHome() {
+        location.replace("/home")
+        }
+    function myKeeper() {
+        location.replace("/home")
+        }
+    function myDef() {
+        location.replace("/home")
+        }
+    </script>
     <div class="embed-responsive">
         <iframe
                 src={{ dash_url }}
-                style="overflow-x: hidden; overflow-y: hidden; margin-top: -5px; margin-left: -5px; margin-bottom: -5px; margin-right: -5px; position: absolute; width:99.5%; height: 100%; background: transparent"
+                seamless="seamless"
+                style="border:none; overflow: hidden; margin-top: 10px; margin-left: -5px; margin-bottom: -5px; margin-right: -5px; position: absolute; width:99.5%; height: 100%; background: transparent;"
     ></iframe>
     </div>
 </body>

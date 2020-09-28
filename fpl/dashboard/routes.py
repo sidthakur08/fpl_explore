@@ -4,6 +4,7 @@ from flask import current_app as app
 from fpl.dashboard import keeper, defender
 
 @app.route('/')
+@app.route('/home')
 def landing_page():
     return render_template('index.html')
 
