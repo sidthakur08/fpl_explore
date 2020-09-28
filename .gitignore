@@ -4,4 +4,4 @@ venv
 .env
 *.pyc
 ./fpl/__pycache/*
-
+nbs

@@ -151,7 +151,7 @@ def init_attacker_callbacks(app):
         ]
     )
     def update_graph(y,x,plot_type):
-        keeper_data = pd.read_csv('./nbs/data/attacker_dash.csv')
+        keeper_data = pd.read_csv('./data/attacker_dash.csv')
         
         if plot_type=='bar':
             fig = px.bar(keeper_data,x=x,y=y,hover_name='player',hover_data=['cost','points','squad','position','minutes'])
