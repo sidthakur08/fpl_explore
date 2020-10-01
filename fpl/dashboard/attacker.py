@@ -48,7 +48,7 @@ def init_attacker(server):
                         {'label':'Goals per90','value':'goals_per90'},
                         {'label':'Assists per90','value':'assists_per90'},
                         {'label':'Penalties Attempted','value':'pens_att'},
-                        {'label':'Penalty Conversion %','value':'pens_conv'},
+                        {'label':'Penalty Conversion %','value':'pen_conv'},
                         {'label':'Yellow Cards','value':'cards_yellow'},
                         {'label':'Red Cards','value':'cards_red'},
                         {'label':'Goals & Assists per90','value':'goals_assists_per90'},
@@ -79,7 +79,7 @@ def init_attacker(server):
                         {'label':'Goals per90','value':'goals_per90'},
                         {'label':'Assists per90','value':'assists_per90'},
                         {'label':'Penalties Attempted','value':'pens_att'},
-                        {'label':'Penalty Conversion %','value':'pens_conv'},
+                        {'label':'Penalty Conversion %','value':'pen_conv'},
                         {'label':'Yellow Cards','value':'cards_yellow'},
                         {'label':'Red Cards','value':'cards_red'},
                         {'label':'Goals & Assists per90','value':'goals_assists_per90'},
@@ -185,11 +185,3 @@ def init_attacker_callbacks(app):
             },
         })
         return fig
-
-
-
-'''html.H5(children = 'More stuff coming up',style={'marginBottom':-10}),
-        html.P(children = 'Analytics Panel for Forwards, Midfielders and Defenders.'),
-        html.H4(children = 'Few links that can come in handy',style={'marginBottom':0}),
-        html.A(' - More Info on PSxG',href='https://statsbomb.com/2018/11/a-new-way-to-measure-keepers-shot-stopping-post-shot-expected-goals/',target = '_blank'),
-        html.Br(),'''

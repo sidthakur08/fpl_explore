@@ -174,11 +174,3 @@ def init_defender_callbacks(app):
             },
         })
         return fig
-
-
-
-'''html.H5(children = 'More stuff coming up',style={'marginBottom':-10}),
-        html.P(children = 'Analytics Panel for Forwards, Midfielders and Defenders.'),
-        html.H4(children = 'Few links that can come in handy',style={'marginBottom':0}),
-        html.A(' - More Info on PSxG',href='https://statsbomb.com/2018/11/a-new-way-to-measure-keepers-shot-stopping-post-shot-expected-goals/',target = '_blank'),
-        html.Br(),'''
