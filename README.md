@@ -1,5 +1,5 @@
 # Fantasy Premier League Dashboard
-An analytics panel made using Flask, Dash and Plotly to visualize and select players based on their stats (from last season) for your Fantasy Premier League Team.
+An analytical panel made using Flask, Dash and Plotly to visualize and select players based on their stats (from last season) for your Fantasy Premier League Team.
 
 ### Installing and running the project on local machine
 
